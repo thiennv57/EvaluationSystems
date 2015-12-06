@@ -1,0 +1,41 @@
+<hr>
+<table class="table">
+  <caption>
+    <h1>All template</h1>
+    <%= link_to "Create new template", new_template_path, class: "btn btn-primary pull-right" %>
+  </caption>
+  <thead>
+    <tr>
+      <th class="text-center col-md-3">Template</th>
+      <th class="text-center">Topics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td>
+          <h4><%= link_to template.name, template  %></h4>
+        </td>
+        <td>
+          <div>
+            <ul>
+              <% template.topics.each do |topic| %>
+                <li>
+                  <div>
+                    <p><%= link_to topic.name, edit_topic_path(topic) %></p>
+                    <i>
+                      <% topic.sub_topics.each do |sub_topic| %>
+                        <%= link_to sub_topic.name, sub_topic %> ,
+                      <% end %>
+                    </i>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
