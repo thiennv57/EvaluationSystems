@@ -1,0 +1,14 @@
+<div class="form-group">
+  <hr>
+  <div class="col-md-4">
+    <%= f.text_field :name, class: "form-control",
+      placeholder: "Type here some texts" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.text_area :description, class: "form-control",
+      placeholder: "Type here some texts" %>
+  </div>
+  <div class="col-md-2">
+    <%= link_to_remove_fields "remove", f %>
+  </div>
+</div>

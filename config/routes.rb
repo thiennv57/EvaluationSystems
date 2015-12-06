@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
   resources :users
+
+  get 'evaluator_hompages/index'
+
+  resources :templates
+  resources :topics
+  resources :sub_topics
+  resources :evaluator_hompages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

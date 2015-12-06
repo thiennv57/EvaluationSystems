@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151205164549) do
+ActiveRecord::Schema.define(version: 20151205175249) do
+
+  create_table "sub_topics", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "topic_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sub_topics", ["topic_id"], name: "index_sub_topics_on_topic_id"
+
+  create_table "templates", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "template_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "topics", ["template_id"], name: "index_topics_on_template_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
